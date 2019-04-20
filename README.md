@@ -2,7 +2,7 @@
 
 ## Description
 
-A simple wrapper to call the Bandsintown API.
+A simple (wrapper) npm package to call the Bandsintown API.
 
 ## How to use:
 
