@@ -1,0 +1,22 @@
+{
+  "name": "bandsintownv3",
+  "version": "1.0.3",
+  "description": "Wrapper to use Bandsintown V3.0.0.0 API",
+  "main": "APIHandler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "keywords": [
+    "bandsintown",
+    "artist",
+    "events",
+    "shows",
+    "gigs",
+    "api"
+  ],
+  "author": "Fabio Morbec",
+  "license": "ISC"
+}
