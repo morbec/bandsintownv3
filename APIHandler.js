@@ -85,7 +85,7 @@ const replaceCharacters = str => {
   let artist = str;
 
   characters.forEach(char => {
-    if (artist.indexOf(char.symbol)) artist = artist.replace(char.regex, char.code);
+    if (artist.includes(char.symbol)) artist = artist.replace(char.regex, char.code);
   });
 
   return artist;
