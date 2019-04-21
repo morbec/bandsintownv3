@@ -32,14 +32,21 @@ class APIHandler {
   }
 
   /**
-   * @function
+   * @function Get the upcoming events of an artists. Date range is optional.
+   *    Please note that the range date needs both parameters.
    * @param {String} artistName - The name of the artist
+   * @param {String} from - Starting date (format: yyyy-mm-dd)
+   * @param {String} to - End date (format: yyyy-mm-dd)
    * @returns Promise
    */
-  getArtistEvents(artistName) {
+  getArtistEvents(artistName, from = null, to = null) {
     const artist = replaceCharacters(artistName);
+    let queryURL = `${this.BASE_URL}/artists/${artist}/events?app_id=${this.app_id}`;
+
+    if (from && to) queryURL += `&date=${from}%2C${to}`;
+
     return axios
-      .get(`${this.BASE_URL}/artists/${artist}/events?app_id=${this.app_id}`)
+      .get(queryURL)
       .then(response => {
         return response.data;
       })
