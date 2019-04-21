@@ -22,16 +22,9 @@ class APIHandler {
    * @returns Promise
    */
   getArtistInfo(artistName) {
-    /*
-      NOTE: If the artist's name contains one of the special characters below, 
-      please be sure to replace it by the corresponding code: 
-      for / use %252F
-      for ? use %253F
-      for * use %252A
-      and for " use %27C
-    */
+    const artist = replaceCharacters(artistName);
     return axios
-      .get(`${this.BASE_URL}/artists/${artistName}?app_id=${this.app_id}`)
+      .get(`${this.BASE_URL}/artists/${artist}?app_id=${this.app_id}`)
       .then(response => {
         return response.data;
       })
@@ -44,13 +37,58 @@ class APIHandler {
    * @returns Promise
    */
   getArtistEvents(artistName) {
+    const artist = replaceCharacters(artistName);
     return axios
-      .get(`${this.BASE_URL}/artists/${artistName}/events?app_id=${this.app_id}`)
+      .get(`${this.BASE_URL}/artists/${artist}/events?app_id=${this.app_id}`)
       .then(response => {
         return response.data;
       })
       .catch(err => console.error('ERROR: ', err));
   }
 }
+
+/**
+ * Replace the characters ' ', /, ? , * and " by its ASCII code
+ * @param {String} str Artist name
+ * @returns A new String
+ */
+const replaceCharacters = str => {
+  const characters = [
+    {
+      symbol: ' ',
+      regex: /\s/g,
+      code: `%20`
+    },
+    {
+      symbol: '/',
+      regex: /\//g,
+      code: `%252F`
+    },
+    {
+      symbol: '?',
+      regex: /\?/g,
+      code: '%253F'
+    },
+    {
+      symbol: '*',
+      regex: /\*/g,
+      code: '%252A'
+    },
+    {
+      symbol: '"',
+      regex: `"`,
+      code: '%27C'
+    }
+  ];
+
+  // Preserve the input string
+  let artist = str;
+
+  characters.forEach(char => {
+    if (artist.indexOf(char.symbol)) artist = artist.replace(char.regex, char.code);
+  });
+
+  return artist;
+};
 
 module.exports = APIHandler;
