@@ -38,3 +38,15 @@ api.getArtistEvents('Metallica')
   // Handle the error here
 })
 ```
+
+Get upcoming artist events filtered by range date. Note that both `from` and `to` parameters are needed when using range date.
+
+```
+api.getArtistEvents('Metallica', '2019-06-01', '2019-12-31')
+.then(events => {
+  // Do something
+})
+.catch(err => {
+  // Handle the error here
+})
+```
