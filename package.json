@@ -1,13 +1,13 @@
 {
   "name": "bandsintownv3",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Wrapper to use Bandsintown V3.0.0.0 API",
   "main": "APIHandler.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "axios": "^0.17.0"
+    "axios": "^0.19.0"
   },
   "repository": {
     "type": "git",
