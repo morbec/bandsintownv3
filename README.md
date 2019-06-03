@@ -1,3 +1,6 @@
+[![npm version](https://img.shields.io/npm/v/bandsintownv3.svg)](https://www.npmjs.com/package/bandsintownv3 "View this project on npm")
+
+
 # bandsintownv3
 
 ## Description
