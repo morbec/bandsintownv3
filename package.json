@@ -22,5 +22,6 @@
     "api"
   ],
   "author": "Fabio Morbec",
-  "license": "ISC"
+  "license": "ISC",
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
 }
